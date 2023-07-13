@@ -10,8 +10,11 @@ export default function Home({ data }: IData) {
     <main
       className={` flex flex-row flex-wrap mx-auto  max-w-[1324px] p-4 gap-y-8 gap-x-8  h-full justify-between ${inter.className}`}
     >
-      {data.map((item: Result) => (
-        <UserCard {...item} />)
+      {data.map((item: Result, index: number) => (
+        <div key={index}>
+          <UserCard {...item} />
+        </div>
+      )
       )}
     </main>
   )
@@ -25,7 +28,7 @@ export async function getServerSideProps() {
 
   const res = await fetch(`https://randomuser.me/api/?results=10`)
   let data = await res.json()
-  data=data.results
+  data = data.results
   // Pass data to the page via props
   return { props: { data } }
 }

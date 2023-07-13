@@ -1,6 +1,6 @@
 import React, { useMemo, useEffect, useState } from 'react'
 
-const index = () => {
+const SingleUser = () => {
     const [resData, setResData] = useState<any>()
 
     const fetchName = useMemo(async () => {
@@ -16,8 +16,8 @@ const index = () => {
 
     useEffect(() => {
         fetchName
-    }, [])
-    
+    }, [fetchName])
+
     return (
         <div>
             <p>
@@ -32,4 +32,4 @@ const index = () => {
     )
 }
 
-export default index
+export default SingleUser

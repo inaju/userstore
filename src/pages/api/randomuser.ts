@@ -5,7 +5,7 @@ import {  Result } from '@/types'
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Result>
+  res: NextApiResponse
 ) {
   const response = await fetch(`https://randomuser.me/api/`);
   let data = await response.json();
